@@ -1,0 +1,38 @@
+@import '../../assets/sass/custom.scss';
+
+.fate-flip-result-modal-container {
+    background-color: rgba(0, 0, 0, 0.9);
+
+    .modal-content {
+        background-color: rgba(29, 26, 29, 0.9);
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        text-align: center;
+
+        .modal-body {
+            margin-top: 2rem;
+            font-size: 1.8rem;
+            font-family: $font-morris;
+        }
+        .success p{
+            background: $gradient-papyrus;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .fail p{
+            color: $color-white-1;
+        }
+    }
+
+    .modal-footer {
+        border: none !important;
+        text-align: center;
+        justify-content: center !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+
+        button {
+            padding: 0.4rem 2rem;
+        }
+    }
+}

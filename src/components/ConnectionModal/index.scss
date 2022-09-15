@@ -1,0 +1,44 @@
+@import '../../assets/sass/custom.scss';
+
+.custom-auth-modal-container {
+    background-color: rgba(0, 0, 0, 0.9);
+
+    .modal-content {
+        background-color: rgba(29, 26, 29, 0.9);
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        text-align: center;
+        padding: 2rem;
+
+        .modal-body {
+            font-size: 1.8rem;
+            font-family: $font-morris;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+
+            button {
+                width: 120px;
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .custom-auth-modal-container {
+        .modal-content {
+            padding: 6rem 0rem;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .custom-auth-modal-container {
+        .modal-content {
+            margin-left: 2rem !important;
+            margin-right: 2rem !important;
+        }
+    }
+}

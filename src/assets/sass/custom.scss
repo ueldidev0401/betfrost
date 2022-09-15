@@ -1,0 +1,58 @@
+@import url('https://fonts.cdnfonts.com/css/morris-roman');
+@import url('https://fonts.cdnfonts.com/css/zilluncial');    
+
+$font-morris: 'Morris Roman', sans-serif;
+$font-zill: 'Zilluncial', sans-serif;
+
+$color-white-1: white;
+
+$gradient-papyrus: -webkit-linear-gradient(90deg, #AC6E35 0%, #FADE8C 51.56%, #AC6E35 100%);
+// $gradient-fancy: -webkit-linear-gradient(135deg, rgba(91, 198, 206, 1) 0%, rgba(116, 180, 236, 1) 33%, rgba(50, 50, 165, 1) 66%, rgba(245, 51, 129, 1) 100%);
+$gradient-fancy: linear-gradient(89.97deg, #a343e3 0.02%, #c923a4 98.97%);
+
+.gradient-button {
+    display:inline-block;
+    position:relative;
+    line-height:24px;
+    letter-spacing:1px;
+    text-decoration: none !important;
+    cursor: pointer;
+
+    border-width: 2px;
+    border-style: solid;
+    border-image: $gradient-fancy 1;
+ 
+    background-color: #C0C0C011;
+    
+    color: $color-white-1;
+    font-family: $font-morris;
+    font-size: 1.6rem;
+    transition: all 0.3s ease-in;
+
+    &:disabled {
+        color: #77777788;
+        border: 2px solid #C0C0C066;
+        cursor: initial;
+    }
+}
+
+.gradient-button:before {
+    content: '';
+    width: calc(100% + 4px);
+    opacity: 0;
+    height: calc(100% + 4px);
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    transition: all 0.2s ease-in;
+    z-index: 0;
+    background: $gradient-fancy;
+}
+
+.gradient-button:hover:not(:disabled):before, .gradient-button:active:not(:disabled):before{
+    opacity: .8;
+}
+
+.gradient-button:hover:not(:disabled), .gradient-button:active:not(:disabled) {
+    color: $color-white-1;
+}

@@ -1,0 +1,116 @@
+@import '../../../assets/sass/custom.scss';
+
+.navbar {
+  width: 100% !important;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 35px !important;
+}
+
+.custom-navbar-dark {
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: all 0.2s ease-in;
+
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .07),
+    0 1px 4px 0 rgba(0, 0, 0, .05) !important;
+}
+
+.c-logo-container {
+  img {
+    height: 3.2rem;
+  }
+
+  span {
+    // color: white !important;
+    font-weight: 600;
+    margin-left: 1rem;
+    font-size: 1.8rem;
+    font-family: $font-morris;
+    // color: #d4c272;
+    // background: $gradient-papyrus;
+    // -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
+    // background-clip: text;
+  }
+}
+
+.logoDiv {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  p {
+    margin: 0px;
+    font-size: 18px;
+    font-weight: 800;
+  }
+
+  img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.auth-button {
+  // width: 130px;
+  margin: auto;
+  padding: .45rem 1.8rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #ECD095;
+  transition: .3s all ease-in-out;
+  border: 1px solid #ECD095;
+  border-radius: 5px;
+  text-decoration: none !important;
+  font-weight: 600;
+  cursor: pointer;
+  
+  &:hover {
+    color: black;
+    background-color: rgba(233, 190, 71, 0.8);
+  }
+}
+
+@media (max-width: 576px) {
+  .nav-menu-wrap.navbar-collapse.collapse.show {
+    margin-top: 1rem;
+  }
+
+  .custom-navbar {
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: all 0.2s ease-in;
+
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .07),
+      0 1px 4px 0 rgba(0, 0, 0, .05) !important;
+  }
+}
+
+.custom-navbar-button {
+  margin: auto;
+  padding: .6rem 0;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none !important;
+
+  transition: all .2s ease-in;
+  color: white !important;
+}
+
+.custom-navbar-normal-button {
+  margin-left: 1rem;
+  margin-right: 1rem;
+
+  color: white;
+  background-color: transparent;
+
+  &:hover {
+    color: #ECD095 !important;
+    // text-shadow: 0 0 6px  rgba(0,0,0,.2),
+    //              0 0 9px  rgba(0,0,0,.1);
+  }
+}

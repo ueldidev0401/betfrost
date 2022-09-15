@@ -1,0 +1,824 @@
+{
+    "buildInfo": {
+        "rustc": {
+            "version": "1.62.0-nightly",
+            "commitHash": "69a5d2481e856a5a18885390b8cf6950b9ff8dd3",
+            "commitDate": "2022-04-27",
+            "channel": "Nightly",
+            "short": "rustc 1.62.0-nightly (69a5d2481 2022-04-27)"
+        },
+        "contractCrate": {
+            "name": "odin-lottery",
+            "version": "0.0.0"
+        },
+        "framework": {
+            "name": "elrond-wasm",
+            "version": "0.30.0"
+        }
+    },
+    "name": "OdinLottery",
+    "constructor": {
+        "inputs": [
+            {
+                "name": "treasury_address",
+                "type": "Address"
+            }
+        ],
+        "outputs": []
+    },
+    "endpoints": [
+        {
+            "name": "withdrawFunds",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "opt_token_id",
+                    "type": "optional<TokenIdentifier>",
+                    "multi_arg": true
+                },
+                {
+                    "name": "opt_token_nonce",
+                    "type": "optional<u64>",
+                    "multi_arg": true
+                },
+                {
+                    "name": "opt_token_amount",
+                    "type": "optional<BigUint>",
+                    "multi_arg": true
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "docs": [
+                ""
+            ],
+            "name": "viewLottery",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "lottery_id",
+                    "type": "u32"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "Lottery"
+                }
+            ]
+        },
+        {
+            "docs": [
+                ""
+            ],
+            "name": "viewCurrentLottery",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "Lottery"
+                }
+            ]
+        },
+        {
+            "name": "viewClaimableLotteries",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "variadic<Lottery>",
+                    "multi_result": true
+                }
+            ]
+        },
+        {
+            "docs": [
+                ""
+            ],
+            "name": "viewTickets",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "user_address",
+                    "type": "Address"
+                },
+                {
+                    "name": "lottery_id",
+                    "type": "u32"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "variadic<Ticket>",
+                    "multi_result": true
+                }
+            ]
+        },
+        {
+            "name": "startLottery",
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "lottery_end_timestamp",
+                    "type": "u64"
+                },
+                {
+                    "name": "lottery_treasury_fee",
+                    "type": "u32"
+                },
+                {
+                    "name": "lottery_number_of_brackets",
+                    "type": "u32"
+                },
+                {
+                    "name": "lottery_reward_percentage_per_bracket",
+                    "type": "List<u32>"
+                },
+                {
+                    "name": "lottery_ticket_token_ids",
+                    "type": "List<TokenIdentifier>"
+                },
+                {
+                    "name": "lottery_ticket_token_amounts",
+                    "type": "List<BigUint>"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "closeLottery",
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "lottery_id",
+                    "type": "u32"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "injectFunds",
+            "mutability": "mutable",
+            "payableInTokens": [
+                "*"
+            ],
+            "inputs": [
+                {
+                    "name": "lottery_id",
+                    "type": "u32"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "buyTickets",
+            "mutability": "mutable",
+            "payableInTokens": [
+                "*"
+            ],
+            "inputs": [
+                {
+                    "name": "lottery_id",
+                    "type": "u32"
+                },
+                {
+                    "name": "ticket_numbers",
+                    "type": "variadic<u32>",
+                    "multi_arg": true
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "claimTickets",
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "lottery_id",
+                    "type": "u32"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "getCurrentLotteryId",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "u32"
+                }
+            ]
+        },
+        {
+            "name": "getLotteryStatus",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "lottery_id",
+                    "type": "u32"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "Status"
+                }
+            ]
+        },
+        {
+            "name": "getLotteryStartTimestamp",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "lottery_id",
+                    "type": "u32"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "u64"
+                }
+            ]
+        },
+        {
+            "name": "getLotteryEndTimestamp",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "lottery_id",
+                    "type": "u32"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "u64"
+                }
+            ]
+        },
+        {
+            "name": "getLotteryTreasuryFee",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "lottery_id",
+                    "type": "u32"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "u32"
+                }
+            ]
+        },
+        {
+            "name": "getLotteryTicketTokens",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "lottery_id",
+                    "type": "u32"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "variadic<multi<TokenIdentifier,BigUint>>",
+                    "multi_result": true
+                }
+            ]
+        },
+        {
+            "name": "getLotteryNumberOfBrackets",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "lottery_id",
+                    "type": "u32"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "u32"
+                }
+            ]
+        },
+        {
+            "name": "getLotteryRewardPercentagePerBracket",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "lottery_id",
+                    "type": "u32"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "variadic<u32>",
+                    "multi_result": true
+                }
+            ]
+        },
+        {
+            "name": "getLotteryNumberOfWinnersPerBracket",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "lottery_id",
+                    "type": "u32"
+                },
+                {
+                    "name": "bracket",
+                    "type": "u32"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "u32"
+                }
+            ]
+        },
+        {
+            "name": "getLotteryCollectedTokens",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "lottery_id",
+                    "type": "u32"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "variadic<multi<TokenIdentifier,EsdtTokenPayment>>",
+                    "multi_result": true
+                }
+            ]
+        },
+        {
+            "name": "getLotteryFinalNumber",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "lottery_id",
+                    "type": "u32"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "u32"
+                }
+            ]
+        },
+        {
+            "name": "getLastTicketId",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "lottery_id",
+                    "type": "u32"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "u32"
+                }
+            ]
+        },
+        {
+            "name": "getUserAddresses",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "lottery_id",
+                    "type": "u32"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "variadic<Address>",
+                    "multi_result": true
+                }
+            ]
+        },
+        {
+            "name": "getTicketOwner",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "lottery_id",
+                    "type": "u32"
+                },
+                {
+                    "name": "ticket_id",
+                    "type": "u32"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "Address"
+                }
+            ]
+        },
+        {
+            "name": "getTicketNumber",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "lottery_id",
+                    "type": "u32"
+                },
+                {
+                    "name": "ticket_id",
+                    "type": "u32"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "u32"
+                }
+            ]
+        },
+        {
+            "name": "getTicketClaimed",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "lottery_id",
+                    "type": "u32"
+                },
+                {
+                    "name": "ticket_id",
+                    "type": "u32"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "getNumberOfTicketsPerTier",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "lottery_id",
+                    "type": "u32"
+                },
+                {
+                    "name": "bracket",
+                    "type": "u32"
+                },
+                {
+                    "name": "tier",
+                    "type": "u32"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "u32"
+                }
+            ]
+        },
+        {
+            "name": "getTicketIdsPerAddress",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "address",
+                    "type": "Address"
+                },
+                {
+                    "name": "lottery_id",
+                    "type": "u32"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "variadic<u32>",
+                    "multi_result": true
+                }
+            ]
+        },
+        {
+            "name": "getOperatorAddresses",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "variadic<Address>",
+                    "multi_result": true
+                }
+            ]
+        },
+        {
+            "name": "addOperators",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "addresses",
+                    "type": "variadic<Address>",
+                    "multi_arg": true
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "removeOperators",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "addresses",
+                    "type": "variadic<Address>",
+                    "multi_arg": true
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "clearOperators",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [],
+            "outputs": []
+        },
+        {
+            "name": "getTreasuryAddress",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "Address"
+                }
+            ]
+        },
+        {
+            "name": "setTreasuryAddress",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "treasury_address",
+                    "type": "Address"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "getMaxNumberOfTicketsPerBuyOrClaim",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "u32"
+                }
+            ]
+        },
+        {
+            "name": "setMaxNumberOfTicketsPerBuyOrClaim",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "max_number_of_tickets_per_buy_or_claim",
+                    "type": "u32"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "getAutoInjectionEnabled",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "setAutoInjectionEnabled",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "auto_injection_enabled",
+                    "type": "bool"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "getAllowedPaymentTokens",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "variadic<TokenIdentifier>",
+                    "multi_result": true
+                }
+            ]
+        },
+        {
+            "name": "addAllowedPaymentTokens",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "token_ids",
+                    "type": "variadic<TokenIdentifier>",
+                    "multi_arg": true
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "removeAllowedPaymentTokens",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "token_ids",
+                    "type": "variadic<TokenIdentifier>",
+                    "multi_arg": true
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "clearAllowedPaymentTokens",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [],
+            "outputs": []
+        },
+        {
+            "name": "getPendingTokensForNextLottery",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "variadic<multi<TokenIdentifier,EsdtTokenPayment>>",
+                    "multi_result": true
+                }
+            ]
+        }
+    ],
+    "hasCallback": false,
+    "types": {
+        "EsdtTokenPayment": {
+            "type": "struct",
+            "fields": [
+                {
+                    "name": "token_type",
+                    "type": "EsdtTokenType"
+                },
+                {
+                    "name": "token_identifier",
+                    "type": "TokenIdentifier"
+                },
+                {
+                    "name": "token_nonce",
+                    "type": "u64"
+                },
+                {
+                    "name": "amount",
+                    "type": "BigUint"
+                }
+            ]
+        },
+        "EsdtTokenType": {
+            "type": "enum",
+            "variants": [
+                {
+                    "name": "Fungible",
+                    "discriminant": 0
+                },
+                {
+                    "name": "NonFungible",
+                    "discriminant": 1
+                },
+                {
+                    "name": "SemiFungible",
+                    "discriminant": 2
+                },
+                {
+                    "name": "Meta",
+                    "discriminant": 3
+                },
+                {
+                    "name": "Invalid",
+                    "discriminant": 4
+                }
+            ]
+        },
+        "Lottery": {
+            "type": "struct",
+            "fields": [
+                {
+                    "name": "lottery_id",
+                    "type": "u32"
+                },
+                {
+                    "name": "status",
+                    "type": "Status"
+                },
+                {
+                    "name": "start_timestamp",
+                    "type": "u64"
+                },
+                {
+                    "name": "end_timestamp",
+                    "type": "u64"
+                },
+                {
+                    "name": "treasury_fee",
+                    "type": "u32"
+                },
+                {
+                    "name": "ticket_token_ids",
+                    "type": "List<TokenIdentifier>"
+                },
+                {
+                    "name": "ticket_token_amounts",
+                    "type": "List<BigUint>"
+                },
+                {
+                    "name": "number_of_brackets",
+                    "type": "u32"
+                },
+                {
+                    "name": "reward_percentage_per_bracket",
+                    "type": "List<u32>"
+                },
+                {
+                    "name": "number_of_winners_per_bracket",
+                    "type": "List<u32>"
+                },
+                {
+                    "name": "number_of_bought_tickets",
+                    "type": "u32"
+                },
+                {
+                    "name": "collected_tokens",
+                    "type": "List<EsdtTokenPayment>"
+                },
+                {
+                    "name": "final_number",
+                    "type": "u32"
+                },
+                {
+                    "name": "max_number_of_tickets_per_buy_or_claim",
+                    "type": "u32"
+                }
+            ]
+        },
+        "Status": {
+            "type": "enum",
+            "variants": [
+                {
+                    "name": "Pending",
+                    "discriminant": 0
+                },
+                {
+                    "name": "Open",
+                    "discriminant": 1
+                },
+                {
+                    "name": "Close",
+                    "discriminant": 2
+                },
+                {
+                    "name": "Claimable",
+                    "discriminant": 3
+                }
+            ]
+        },
+        "Ticket": {
+            "type": "struct",
+            "fields": [
+                {
+                    "name": "owner",
+                    "type": "Address"
+                },
+                {
+                    "name": "number",
+                    "type": "u32"
+                },
+                {
+                    "name": "claimed",
+                    "type": "bool"
+                },
+                {
+                    "name": "win_bracket",
+                    "type": "u32"
+                },
+                {
+                    "name": "win_percentage",
+                    "type": "u32"
+                }
+            ]
+        }
+    }
+}

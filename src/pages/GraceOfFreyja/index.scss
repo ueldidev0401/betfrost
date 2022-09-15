@@ -1,0 +1,679 @@
+@import url('https://fonts.googleapis.com/css2?family=Gorditas&family=IM+Fell+English+SC&family=Sorts+Mill+Goudy&display=swap');
+
+@import '../../assets/sass/custom.scss';
+
+.freyja-first-part {
+    background-image: url("../../assets/img/Grace of Freyja/Valhalla.png");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    min-height: 768px;
+}
+
+.freyja-second-part {
+    background-image: url("../../assets/img/Grace of Freyja/castle.png");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    // min-height: 1024px;
+}
+
+.freyja-third-part {
+    background-image: url("../../assets/img/Grace of Freyja/CoolGirl.png");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+}
+
+.freyja-inner-container {
+    max-width: 1024px;
+}
+
+.freyja-title {
+    width: 50%;
+
+    @media (max-width: 768px) {
+        margin-top: 20px;
+        width: 90%;
+    }
+}
+
+.custom-timer {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+
+    .customer-timer-time {
+        font-size: 3rem;
+        font-family: 'IM FELL English SC';
+        text-shadow: 1px 3px 4px #000000;
+
+        @media (max-width: 768px) {
+            font-size: 2.2rem;
+        }
+    }
+}
+
+.buy-ticket-button {
+    background: rgba(18, 18, 18, 0.75);
+    border-radius: 5px;
+    padding: 25px;
+    width: 300px;
+    margin-top: 60px;
+    transition: .15s ease-in-out;
+
+    .but-title {
+        width: 80%;
+
+        @media (max-width: 768px) {
+            width: 60%;
+        }
+    }
+
+    &:hover {
+        background: rgba(18, 18, 18, 0.9);
+        cursor: pointer;
+    }
+}
+
+.Buy-Ticket-Box {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    gap: 8px;
+    background: rgba(18, 18, 18, 0.6);
+    border-radius: 5px;
+
+    // remove spin-button
+    input[type=number],
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -moz-appearance: textfield;
+        -webkit-appearance: none;
+    }
+}
+
+.custom-input {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px 5px 5px 5px;
+    border: none;
+    padding: 8px 20px;
+    color: white;
+
+    &:hover,
+    &:focus {
+        outline: none;
+    }
+}
+
+.Comment-Box {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background: rgba(18, 18, 18, 0.6);
+    border-radius: 5px;
+}
+
+.Next-Draw {
+    font-size: 15px;
+    font-weight: 400;
+    color: #D3D3D3;
+}
+
+.Comment {
+    font-size: 13px;
+    font-weight: 400;
+    color: #D3D3D3;
+}
+
+.control-but {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 5px;
+    width: 30px;
+    border-radius: 5px;
+    color: white;
+
+    &:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+}
+
+.buy-tickets-but {
+    padding: 5px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    background-color: #8180496b;
+    
+    border-radius: 5px;
+    transition: .3s ease-in-out;
+
+    &:hover {
+        background-color: #818049b2;
+    }
+}
+
+.freyja-center {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.freyja-rounds {
+    position: relative;
+    margin-top: -320px;
+    min-height: 300px;
+
+    @media (max-width: 768px) {
+        margin-top: 0px;
+    }
+}
+
+.lottery-small-number-card {
+    background: rgba(18, 18, 18, 1);
+    width: 60px;
+    border: 1px solid #555555;
+
+    .lottery-number {
+        font-family: 'IM FELL English SC';
+        font-size: 35px;
+        font-weight: 600;
+        background: -webkit-linear-gradient(90deg, #dac374 45%, #6c5b3b 90%, #AC6E35 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        filter: drop-shadow(1px 4px 4px #000000);
+    }
+}
+
+.circle-but {
+    background: rgba(18, 18, 18, 1);
+    border-radius: 50px;
+    border: 1px solid #555555;
+    width: 33px;
+    padding: 5px;
+
+    transition: .3s ease-in-out;
+
+    &:hover {
+        cursor: pointer;
+        background: #dac374;
+        border: 1px solid #000000;
+        color: #000000;
+    }
+}
+
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+    color: #dac374 !important;
+}
+
+.css-1q2h7u5.Mui-selected {
+    color: #dac374 !important;
+}
+
+.css-ttwr4n {
+    background-color: #dac374 !important;
+}
+
+.MuiTabs-indicator {
+    background-color: #dac374 !important;
+}
+
+.css-8je8zh-MuiTouchRipple-root {
+    font-family: 'Sorts Mill Goudy', serif !important;
+}
+
+.token-id-toggle {
+    width: 100%;
+    border: none !important;
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    transition: all 0.3s ease-in;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: rgba(250, 248, 109, 0.4) !important;
+        outline: none !important;
+    }
+
+    span {
+        line-height: 24px;
+        vertical-align: middle;
+        margin-right: .6rem;
+    }
+
+    img {
+        height: 16px;
+        margin-right: .4rem;
+    }
+}
+
+.dropdown-menu {
+    min-width: inherit !important;
+}
+
+.token-id-menu {
+    background-color: rgba(29, 26, 29, 0.9) !important;
+    margin-top: -4px !important;
+    width: 100%;
+
+    .dropdown-item {
+        color: $color-white-1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            background-color: #e9ecef44 !important;
+        }
+
+        span {
+            margin-right: 0.6rem;
+            line-height: 24px;
+            height: 24px;
+            vertical-align: middle;
+            width: 60%;
+        }
+
+        img {
+            height: 16px;
+            margin-right: 0.4rem;
+            line-height: 30px;
+        }
+    }
+}
+
+.info-box {
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.2);
+
+    .step-info-title {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        color: #B5B5B5;
+    }
+
+    .step-info-description {
+        color: #8A8A8A;
+        line-height: 25px;
+    }
+}
+
+.ticket-box-win {
+    padding: 10px 30px;
+    background: linear-gradient(180deg, rgba(148, 129, 101, 0.7) 0%, rgba(241, 218, 138, 0.7) 100%);
+    border-radius: 5px;
+    color: white;
+
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
+    letter-spacing: 0em;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    .ticket-medal {
+        width: 33px !important;
+        padding: 2px;
+        background: linear-gradient(180deg, #6C6C6C 0%, #DCC575 100%);
+        border-radius: 50px;
+
+        .ticket-medal-inner-box {
+            background: rgba(70, 68, 66, 1);
+            border-radius: 50px;
+
+            span {
+                color: #F1DA8A;
+                text-shadow: 0px 2px 4px #DCC575 100%;
+            }
+        }
+    }
+}
+
+.ticket-box-lost {
+    padding: 10px 30px;
+    background: linear-gradient(180deg, rgba(120, 112, 112, 0.6) 0%, rgba(196, 181, 181, 0.6) 100%);
+    border-radius: 5px;
+    color: white;
+
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
+    letter-spacing: 0em;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    .ticket-medal {
+        width: 33px !important;
+        padding: 2px;
+        background: linear-gradient(180deg, rgba(120, 112, 112, 0.6) 0%, rgba(196, 181, 181, 0.6) 100%);
+        border-radius: 50px;
+
+        .ticket-medal-inner-box {
+            background: rgba(70, 68, 66, 1);
+            border-radius: 50px;
+
+            span {
+                color: #B5B5B5;
+                text-shadow: 0px 2px 4px rgba(120, 112, 112, 0.6);
+            }
+        }
+    }
+}
+
+.custom-scroll-bar {
+    overflow-y: "auto";
+    height: "520px";
+
+    &::-webkit-scrollbar {
+        width: 0.5em;
+        height: 0.5em;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, .1);
+        border-radius: 3px;
+
+        &:hover {
+            background: rgba(255, 255, 255, .2);
+        }
+    }
+}
+
+/* for modal */
+.modalcard {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 12vh auto;
+    padding: 25px;
+    background-color: #2B2D2E;
+    border-radius: 8px;
+    color: #D9D9D9;
+    font-family: 'Segoe UI';
+
+    max-height: calc(100vh - 160px);
+    overflow-y: auto;
+}
+
+@media (max-width: 576px) {
+    .modalcard {
+        margin: 20vh 1.5rem;
+    }
+}
+
+.box-shadow {
+    box-shadow: 4px 10px 20px 5px rgba(0, 0, 0, 0.2);
+}
+
+.ReactModal__Content.ReactModal__Content--after-open.modalcard.p-0:focus-visible {
+    border: none !important;
+    outline: none !important;
+}
+
+.ReactModal__Content.ReactModal__Content--after-open.modalcard:focus-visible {
+    border: none !important;
+    outline: none !important;
+}
+
+.ReactModal__Overlay.ReactModal__Overlay--after-open {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.modaldiv {
+    display: 'flex';
+    align-items: 'center';
+    justify-content: 'space-between';
+}
+
+.modalHeader {
+    display: block !important;
+    font-family: Microsoft JhengHei;
+    font-weight: 600 !important;
+    font-size: 25px;
+    text-align: center;
+    color: white;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+.modal-description {
+    font-weight: 400;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-family: 'Segoe UI';
+}
+
+.modal-divider {
+    width: 100%;
+    // height: 1rem;
+    // border-bottom: 1px dashed #42526D;
+    border-bottom: 1px dashed rgba(112, 112, 112, 0.43);
+}
+
+
+/* for pin field */
+.pin-field {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgb(94, 94, 94);
+    border-radius: 0.3rem;
+    font-size: 2rem;
+    margin: 0.5rem;
+    height: 3.5rem;
+    outline: none;
+    text-align: center;
+    transition-duration: 250ms;
+    transition-property: background, color, border, box-shadow, transform;
+    width: 3rem;
+    color: white;
+
+    &:focus {
+        border-color: #F1DA8A;
+        outline: none;
+        transform: scale(1.05);
+    }
+
+    &:invalid {
+        animation: shake 3 linear 75ms;
+        border-color: rgb(220, 53, 69);
+        box-shadow: 0 0 0.25rem rgba(220, 53, 69, 0.5);
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+}
+
+@keyframes shake {
+    from {
+        transform: scale(1.05) translateY(-5%);
+    }
+
+    to {
+        transform: scale(1.05) translateY(5%);
+    }
+}
+
+.freyja-but {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    text-align: center;
+    border-radius: 5px;
+    transition: .2s ease-in-out;
+
+    &:hover {
+        cursor: pointer;
+        background: rgba(0, 0, 0, 0.5);
+        color: #F1DA8A;
+    }
+}
+
+.normal-ticket {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgb(56, 56, 56);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 18px;
+    display: flex;
+}
+
+.close-but {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2px;
+    width: 23px;
+    border-radius: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+        cursor: pointer;
+        background: #f18a8a;
+        color: black;
+    }
+}
+
+.prize-pool-box {
+    width: 420px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.35);
+    padding-top: 20px;
+    color: white;
+    font-family: 'IM FELL English SC';
+    font-size: 18px;
+    color: #f8e6a6;
+    display: flex;
+    flex-direction: column;
+}
+
+.max-but {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 0px 10px;
+    border-radius: 5px;
+    color: white;
+    align-items: center;
+    display: flex;
+    transition: .2s ease-in-out;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #F1DA8A;
+        color: black;
+    }
+}
+
+.claim-but {
+    border-radius: 3px;
+    padding: 5px 20px;
+    background: #F1DA8A;
+    width: 100%;
+
+    transition: .2s ease-in-out;
+
+    &:hover {
+        cursor: pointer;
+        background-color: gray;
+        color: white;
+    }
+}
+
+
+.css-jcn4dz-MuiBadge-badge {
+    background-color: #7a7a7a !important;
+}
+
+.css-106c1u2-MuiBadge-badge {
+    background-color: #F1DA8A !important;
+    color: black !important;
+}
+
+.girl1 {
+    margin-top: -80px;
+    margin-left: 100px;
+
+    @media (max-width: 576px) {
+        margin-top: -40px;
+        width: 50%;
+        margin-left: 0px;
+    }
+}
+
+.girl2 {
+    margin-top: -30px;
+    margin-left: -80px;
+
+    @media (max-width: 576px) {
+        width: 50%;
+        margin-left: 0px;
+    }
+}
+
+.details {
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover {
+        color: white;
+    }
+}
+
+.ReactCollapse--collapse {
+    transition: height 500ms;
+    margin-top: -20px;
+}
+
+.Collapse-Box {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: rgba(18, 18, 18, 0.6);
+    border-radius: 5px;
+}
+
+.freyja-saying {
+    font-family: 'IM FELL English SC';
+    font-size: 35px;
+    font-weight: 600;
+    background: -webkit-linear-gradient(90deg, #dac374 45%, #a88c59 90%, #AC6E35 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(1px 2px 2px #1a1a1a);
+
+    @media (max-width: 576px) {
+        font-size: 22px;
+    }
+}
+
+.show-tickets {
+    color: #dac374;
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover {
+        color: #da7474;
+    }
+}

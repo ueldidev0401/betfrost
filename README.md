@@ -1,0 +1,3 @@
+# Betfrost Odin DApp
+
+All Casinoes shall be put here...
